@@ -1,13 +1,49 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Graphics/dark.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends AnimatedSprite
+
+export var speed:float = 10
+var direction = Vector2()
+
+
+
+
+func get_input():
+	direction = Vector2()
+	if Input.is_action_pressed('right'):
+		direction.x += 1
+	if Input.is_action_pressed('left'):
+		direction.x -= 1
+	if Input.is_action_pressed('down'):
+		direction.y += 1
+	if Input.is_action_pressed('up'):
+		direction.y -= 1
+  
+
+func _physics_process(delta):
+	get_input()
+	self.position += (direction.normalized()*speed)
+"
 
 [node name="Main" type="Node2D"]
 
-[node name="camera" type="Camera2D" parent="."]
+[node name="Player" type="AnimatedSprite" parent="."]
+script = SubResource( 1 )
+speed = 0.75
+
+[node name="Test" type="Sprite" parent="Player"]
+position = Vector2( -8.9407e-08, -1.19209e-07 )
+scale = Vector2( 0.0833333, 0.0833333 )
+texture = ExtResource( 2 )
+
+[node name="camera" type="Camera2D" parent="Player"]
 current = true
 
-[node name="background" type="Sprite" parent="camera"]
+[node name="background" type="Sprite" parent="Player/camera"]
 position = Vector2( 4.33518, -0.576365 )
 scale = Vector2( 2.54298, 1.23116 )
 z_index = -10
