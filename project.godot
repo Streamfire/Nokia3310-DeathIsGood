@@ -16,8 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="Nokia3310-DeathIsGood"
+run/main_scene="res://internal/Scenes/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://internal/Scripts/Global.gd"
+
+[display]
+
+window/size/width=84
+window/size/height=48
+window/size/test_width=420
+window/size/test_height=240
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
