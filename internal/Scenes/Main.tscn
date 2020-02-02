@@ -14,7 +14,7 @@ script/source = "extends KinematicBody2D
 export var speed:float = 10
 export var shot_scene:PackedScene= null
 var direction = Vector2()
-var lastFaced= Vector2()
+var lastAimed= Vector2(1,0)
 
 onready var animator = $PlayerAnimator
 
@@ -34,13 +34,25 @@ func get_input():
 	if Input.is_action_pressed('move_up'):
 		direction.y -= 1
 	
-	if direction != Vector2(0,0):
-		lastFaced = direction.normalized()
+	var aiming= Vector2(0,0)
+	if Input.is_action_pressed('aim_right'):
+		aiming.x += 1
+	if Input.is_action_pressed('aim_left'):
+		aiming.x -= 1
+	if Input.is_action_pressed('aim_down'):
+		aiming.y += 1
+	if Input.is_action_pressed('aim_up'):
+		aiming.y -= 1
+	
+	
+	if aiming != Vector2(0,0):
+		lastAimed = aiming.normalized()
+	
 	
 	if Input.is_action_just_pressed(\"shoot\"):
 		var shot = shot_scene.instance()
 		shot.position=self.position
-		shot.direction= lastFaced
+		shot.direction= lastAimed
 		self.get_parent().add_child(shot)
 
 func play_animation(dir:Vector2):
