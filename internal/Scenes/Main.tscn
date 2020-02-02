@@ -71,8 +71,14 @@ func get_input():
 		self.get_parent().add_child(shot)
 		shotCD=shot_cooldown
 
-func play_animation(dir:Vector2,stop:bool):
-	match dir:
+func play_animation():
+	var animationdir
+	if(aiming != Vector2(0,0)):
+		animationdir=aiming
+	else:
+		animationdir=direction
+		
+	match animationdir:
 		Vector2(0,0):
 			animator.stop(true)
 			animator.seek(0.5,true)
@@ -93,10 +99,11 @@ func play_animation(dir:Vector2,stop:bool):
 			animator.play(\"Walk_DownLeft\")
 		Vector2(-1,-1):
 			animator.play(\"Walk_UpLeft\")  
-			
-	if stop :
+	
+	if direction == Vector2(0,0):
 		animator.stop(true)
 		animator.seek(0.5,true)
+
 
 func _physics_process(delta):
 	get_input()
@@ -104,13 +111,9 @@ func _physics_process(delta):
 		move_and_collide(direction.normalized()*speed)
 	else:
 		move_and_collide(lastAimed.normalized()*dash_speed)
-		dash=false
-	#self.position += (direction.normalized()*speed)
-	if(aiming != Vector2(0,0)):
-		play_animation(aiming,true)
-	else:
-		play_animation(direction,false)
-		
+		dash=false	
+	
+	play_animation()
 	#cds
 	dashCD-=delta
 	shotCD-=delta
