@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Player/player_south.png" type="Texture" id=2]
@@ -6,12 +6,15 @@
 [ext_resource path="res://Assets/Graphics/Player/player_north.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Graphics/Player/player_northeast.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Graphics/Player/player_southeast.png" type="Texture" id=6]
+[ext_resource path="res://internal/Scenes/Shot.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
 
 export var speed:float = 10
+export var shot_scene:PackedScene= null
 var direction = Vector2()
+var lastFaced= Vector2()
 
 onready var animator = $PlayerAnimator
 
@@ -30,6 +33,15 @@ func get_input():
 		direction.y += 1
 	if Input.is_action_pressed('move_up'):
 		direction.y -= 1
+	
+	if direction != Vector2(0,0):
+		lastFaced = direction.normalized()
+	
+	if Input.is_action_just_pressed(\"shoot\"):
+		var shot = shot_scene.instance()
+		shot.position=self.position
+		shot.direction= lastFaced
+		self.get_parent().add_child(shot)
 
 func play_animation(dir:Vector2):
 	match dir:
@@ -978,6 +990,7 @@ texture = ExtResource( 1 )
 collision_layer = 2
 script = SubResource( 1 )
 speed = 0.5
+shot_scene = ExtResource( 7 )
 
 [node name="WalkBox" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )
