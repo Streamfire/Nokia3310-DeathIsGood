@@ -71,7 +71,7 @@ func get_input():
 		self.get_parent().add_child(shot)
 		shotCD=shot_cooldown
 
-func play_animation(dir:Vector2):
+func play_animation(dir:Vector2,stop:bool):
 	match dir:
 		Vector2(0,0):
 			animator.stop(true)
@@ -93,6 +93,10 @@ func play_animation(dir:Vector2):
 			animator.play(\"Walk_DownLeft\")
 		Vector2(-1,-1):
 			animator.play(\"Walk_UpLeft\")  
+			
+	if stop :
+		animator.stop(true)
+		animator.seek(0.5,true)
 
 func _physics_process(delta):
 	get_input()
@@ -103,9 +107,9 @@ func _physics_process(delta):
 		dash=false
 	#self.position += (direction.normalized()*speed)
 	if(aiming != Vector2(0,0)):
-		play_animation(aiming)
+		play_animation(aiming,true)
 	else:
-		play_animation(direction)
+		play_animation(direction,false)
 		
 	#cds
 	dashCD-=delta
