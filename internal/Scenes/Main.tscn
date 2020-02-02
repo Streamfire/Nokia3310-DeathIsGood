@@ -22,13 +22,13 @@ func _ready():
 
 func get_input():
 	direction = Vector2(0,0)
-	if Input.is_action_pressed('right'):
+	if Input.is_action_pressed('move_right'):
 		direction.x += 1
-	if Input.is_action_pressed('left'):
+	if Input.is_action_pressed('move_left'):
 		direction.x -= 1
-	if Input.is_action_pressed('down'):
+	if Input.is_action_pressed('move_down'):
 		direction.y += 1
-	if Input.is_action_pressed('up'):
+	if Input.is_action_pressed('move_up'):
 		direction.y -= 1
 
 func play_animation(dir:Vector2):
@@ -1033,11 +1033,11 @@ flip_h = true
 hframes = 4
 frame = 3
 
-[node name="MAp" type="Node2D" parent="."]
+[node name="Map" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="MAp"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MAp/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
 position = Vector2( 24, -6 )
 shape = SubResource( 11 )
