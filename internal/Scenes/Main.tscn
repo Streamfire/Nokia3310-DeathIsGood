@@ -11,11 +11,20 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
 
-export var speed:float = 10
+export var speed:float = 0.75
+export var dash_speed:float = 12.0
+export var shot_cooldown:float = 0.2
+export var dash_cooldown:float = 3
+
 export var shot_scene:PackedScene= null
 var direction = Vector2()
 var lastAimed= Vector2(1,0)
 var aiming= Vector2(0,0)
+
+var dash:bool = false
+var dashCD:float= 0.0
+var shotCD:float=0.0
+
 
 onready var animator = $PlayerAnimator
 
@@ -51,12 +60,16 @@ func get_input():
 	elif direction != Vector2(0,0):
 		lastAimed=direction
 	
+	if Input.is_action_just_pressed(\"dash\")and dashCD <= 0.0:
+		dash=true
+		dashCD=dash_cooldown
 	
-	if Input.is_action_just_pressed(\"shoot\"):
+	if Input.is_action_just_pressed(\"shoot\") and shotCD <= 0.0:
 		var shot = shot_scene.instance()
 		shot.position=self.position
 		shot.direction= lastAimed
 		self.get_parent().add_child(shot)
+		shotCD=shot_cooldown
 
 func play_animation(dir:Vector2):
 	match dir:
@@ -79,17 +92,24 @@ func play_animation(dir:Vector2):
 		Vector2(-1,1):
 			animator.play(\"Walk_DownLeft\")
 		Vector2(-1,-1):
-			animator.play(\"Walk_UpLeft\")
-	pass  
+			animator.play(\"Walk_UpLeft\")  
 
 func _physics_process(delta):
 	get_input()
-	move_and_collide(direction.normalized()*speed)
+	if dash != true:
+		move_and_collide(direction.normalized()*speed)
+	else:
+		move_and_collide(lastAimed.normalized()*dash_speed)
+		dash=false
 	#self.position += (direction.normalized()*speed)
 	if(aiming != Vector2(0,0)):
 		play_animation(aiming)
 	else:
 		play_animation(direction)
+		
+	#cds
+	dashCD-=delta
+	shotCD-=delta
 
 "
 
