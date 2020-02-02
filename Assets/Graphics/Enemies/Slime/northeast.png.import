@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/northeast.png-e4e12bb195e9873120b76aae6350afcd.stex"
+path="res://.import/northeast.png-b47e3953af587f3ca16e8da233685cf0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Enemys/Slime/northeast.png"
-dest_files=[ "res://.import/northeast.png-e4e12bb195e9873120b76aae6350afcd.stex" ]
+source_file="res://Assets/Graphics/Enemies/Slime/northeast.png"
+dest_files=[ "res://.import/northeast.png-b47e3953af587f3ca16e8da233685cf0.stex" ]
 
 [params]
 
