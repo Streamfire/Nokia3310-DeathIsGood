@@ -15,6 +15,7 @@ export var speed:float = 10
 export var shot_scene:PackedScene= null
 var direction = Vector2()
 var lastAimed= Vector2(1,0)
+var aiming= Vector2(0,0)
 
 onready var animator = $PlayerAnimator
 
@@ -34,7 +35,7 @@ func get_input():
 	if Input.is_action_pressed('move_up'):
 		direction.y -= 1
 	
-	var aiming= Vector2(0,0)
+	aiming=Vector2(0,0)
 	if Input.is_action_pressed('aim_right'):
 		aiming.x += 1
 	if Input.is_action_pressed('aim_left'):
@@ -47,6 +48,8 @@ func get_input():
 	
 	if aiming != Vector2(0,0):
 		lastAimed = aiming.normalized()
+	elif direction != Vector2(0,0):
+		lastAimed=direction
 	
 	
 	if Input.is_action_just_pressed(\"shoot\"):
@@ -83,7 +86,10 @@ func _physics_process(delta):
 	get_input()
 	move_and_collide(direction.normalized()*speed)
 	#self.position += (direction.normalized()*speed)
-	play_animation(direction)
+	if(aiming != Vector2(0,0)):
+		play_animation(aiming)
+	else:
+		play_animation(direction)
 
 "
 
