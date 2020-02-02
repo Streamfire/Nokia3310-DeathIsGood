@@ -64,7 +64,7 @@ func get_input():
 		dash=true
 		dashCD=dash_cooldown
 	
-	if Input.is_action_just_pressed(\"shoot\") and shotCD <= 0.0:
+	if Input.is_action_pressed(\"shoot\") and shotCD <= 0.0:
 		var shot = shot_scene.instance()
 		shot.position=self.position
 		shot.direction= lastAimed
@@ -1034,7 +1034,10 @@ texture = ExtResource( 1 )
 [node name="Player" type="KinematicBody2D" parent="."]
 collision_layer = 2
 script = SubResource( 1 )
-speed = 0.5
+speed = 0.33
+dash_speed = 16.0
+shot_cooldown = 0.16
+dash_cooldown = 0.8
 shot_scene = ExtResource( 7 )
 
 [node name="WalkBox" type="CollisionShape2D" parent="Player"]
@@ -1052,19 +1055,23 @@ anims/Walk_UpLeft = SubResource( 9 )
 anims/Walk_UpRight = SubResource( 10 )
 
 [node name="Sprite_Up" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 4 )
 hframes = 4
 
 [node name="Sprite_UpRight" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 5 )
 hframes = 4
 frame = 2
 
 [node name="Sprite_Right" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 3 )
 hframes = 4
 
 [node name="Sprite_DownRight" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 6 )
 hframes = 4
 frame = 1
@@ -1072,20 +1079,22 @@ frame = 1
 [node name="Sprite_Down" type="Sprite" parent="Player"]
 texture = ExtResource( 2 )
 hframes = 4
-frame = 3
 
 [node name="Sprite_DownLeft" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 6 )
 flip_h = true
 hframes = 4
 frame = 2
 
 [node name="Sprite_Left" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 3 )
 flip_h = true
 hframes = 4
 
 [node name="Sprite_UpLeft" type="Sprite" parent="Player"]
+visible = false
 texture = ExtResource( 5 )
 flip_h = true
 hframes = 4

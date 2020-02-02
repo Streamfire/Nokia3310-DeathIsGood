@@ -47,7 +47,7 @@ extents = Vector2( 2, 2 )
 [node name="Shot" type="KinematicBody2D"]
 collision_layer = 0
 script = SubResource( 1 )
-speed = 1.25
+speed = 2.5
 
 [node name="Shot" type="Sprite" parent="."]
 position = Vector2( 14, 0 )
