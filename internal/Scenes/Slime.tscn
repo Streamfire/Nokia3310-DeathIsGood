@@ -10,6 +10,8 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
 
+
+export var HP:int = 1
 export var speed:float = 0.75
 export var shot_cooldown:float = 0.5
 export var direction_refresh_time:float = 2.5
@@ -85,6 +87,13 @@ func _physics_process(delta):
 	shotCD-=delta
 	dirCD -=delta
 
+
+
+func _on_Area2D_area_entered(area):
+	HP-=1
+	if(HP<=0):
+		queue_free()
+	pass # Replace with function body.
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -1045,8 +1054,9 @@ hframes = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -1 )
 shape = SubResource( 11 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

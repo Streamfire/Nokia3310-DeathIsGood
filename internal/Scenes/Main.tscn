@@ -7,14 +7,50 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 108 )
 z_index = 25
 
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Slime" parent="Map" instance=ExtResource( 2 )]
-position = Vector2( -20, -3 )
+position = Vector2( 208, 91 )
+z_index = 24
+
+[node name="Slime3" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 263, 104 )
+z_index = 24
+
+[node name="Slime7" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 221, 104 )
+z_index = 24
+
+[node name="Slime8" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 221, 104 )
+z_index = 24
+
+[node name="Slime4" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 231, 141 )
+z_index = 24
+
+[node name="Slime6" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 242, 109 )
+z_index = 24
+
+[node name="Slime5" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 191, 110 )
+z_index = 24
+
+[node name="Slime9" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 184, 137 )
+z_index = 24
+
+[node name="Slime2" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 237, 82 )
 z_index = 24
 
 [node name="outermap" type="Sprite" parent="Map"]
-position = Vector2( 74, -9 )
 texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
