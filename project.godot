@@ -187,6 +187,7 @@ restart={
 2d_physics/layer_3="PlayerShots"
 2d_physics/layer_4="Mobs"
 2d_physics/layer_5="Mobshots"
+2d_physics/layer_6="Destructable Objects"
 
 [rendering]
 

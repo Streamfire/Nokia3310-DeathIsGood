@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Graphics/Objects/tree1.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+
+export var HP:int = 1
+
+
+onready var animator = $Animator
+
+
+
+func _on_Area2D_area_entered(area):
+	HP-=1
+	if(HP<=0):
+		animator.play(\"Die\")
+		$Area2D/CollisionShape2D.queue_free()
+		$WalkBox.queue_free()
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 7 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 8, 7 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("tree1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[node name="Tree" type="KinematicBody2D"]
+collision_mask = 0
+script = SubResource( 1 )
+HP = 2
+
+[node name="WalkBox" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 11 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/Die = SubResource( 12 )
+
+[node name="tree1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 3
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
