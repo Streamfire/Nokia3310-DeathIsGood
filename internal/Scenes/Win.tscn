@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Graphics/nokia_font_dark_strip.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=2]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="light" type="Sprite" parent="."]
+position = Vector2( 43.5, 25.5 )
+scale = Vector2( 2.02083, 1.22917 )
+texture = ExtResource( 2 )
+
+[node name="SpriteText" type="ReferenceRect" parent="."]
+margin_right = 84.0
+margin_bottom = 48.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "You Win!"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 $€£¥¤+-*/=%\"'#@&_(),.;:?!|{}<>[]'^~"
+font_texture = ExtResource( 1 )
+char_width = 7
