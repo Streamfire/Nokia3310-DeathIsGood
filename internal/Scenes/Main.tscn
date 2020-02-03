@@ -525,13 +525,43 @@ position = Vector2( 237, 82 )
 z_index = 24
 
 [node name="Stone2" parent="Map" instance=ExtResource( 4 )]
-position = Vector2( 129, 160 )
+position = Vector2( 198, 166 )
 
 [node name="Stone" parent="Map" instance=ExtResource( 4 )]
 position = Vector2( 146, 143 )
 
 [node name="Stone3" parent="Map" instance=ExtResource( 4 )]
-position = Vector2( 119, 149 )
+position = Vector2( 63, 157 )
 
 [node name="Tree" parent="." instance=ExtResource( 5 )]
 position = Vector2( 257, 29 )
+
+[node name="Tree2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 296, 104 )
+
+[node name="Tree3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 289, 135 )
+
+[node name="Tree4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 310, 122 )
+
+[node name="Tree5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 218, 165 )
+
+[node name="Tree6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 272, 175 )
+
+[node name="Tree7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 246, 166 )
+
+[node name="Tree8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 73, 171 )
+
+[node name="Tree9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 41, 158 )
+
+[node name="Tree10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 23, 140 )
+
+[node name="Tree11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 21, 171 )
