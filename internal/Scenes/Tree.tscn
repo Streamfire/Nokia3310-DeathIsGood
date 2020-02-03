@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Graphics/Objects/tree1.png" type="Texture" id=1]
 
@@ -11,12 +11,14 @@ export var HP:int = 1
 
 onready var animator = $Animator
 
-
+func _ready():
+	animator.play(\"idle\")
 
 func _on_Area2D_area_entered(area):
 	HP-=1
 	if(HP<=0):
-		animator.play(\"Die\")
+		animator.stop()
+		$tree1.frame=2
 		$Area2D/CollisionShape2D.queue_free()
 		$WalkBox.queue_free()
 	pass # Replace with function body.
@@ -31,7 +33,7 @@ extents = Vector2( 8, 7 )
 [sub_resource type="Animation" id=12]
 resource_name = "Die"
 tracks/0/type = "value"
-tracks/0/path = NodePath("tree1:frame")
+tracks/0/path = NodePath("../Stone/tree1:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -41,6 +43,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tree1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
 }
 
 [node name="Tree" type="KinematicBody2D"]
@@ -60,8 +78,10 @@ shape = SubResource( 11 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 anims/Die = SubResource( 12 )
+anims/idle = SubResource( 13 )
 
 [node name="tree1" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 3
+frame = 1
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
