@@ -2,22 +2,19 @@
 
 [ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://internal/Scenes/Slime.tscn" type="PackedScene" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 14 )
+[ext_resource path="res://Assets/Graphics/Deco/outermap.png" type="Texture" id=3]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+z_index = 25
 
 [node name="Map" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
-position = Vector2( 24, -6 )
-shape = SubResource( 1 )
-
 [node name="Slime" parent="Map" instance=ExtResource( 2 )]
 position = Vector2( -20, -3 )
+z_index = 24
+
+[node name="outermap" type="Sprite" parent="Map"]
+position = Vector2( 74, -9 )
+texture = ExtResource( 3 )
