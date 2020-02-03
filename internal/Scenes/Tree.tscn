@@ -83,5 +83,4 @@ anims/idle = SubResource( 13 )
 [node name="tree1" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 3
-frame = 1
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
