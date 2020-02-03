@@ -1,24 +1,58 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Graphics/nokia_font_dark_strip.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=2]
-[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Graphics/Splash/youwin.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Graphics/nokia_font_dark_strip.png" type="Texture" id=2]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Control/SpriteText.text=str(Global.seconds,\"s\")
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
 
 [node name="Node2D" type="Node2D"]
+script = SubResource( 1 )
 
-[node name="light" type="Sprite" parent="."]
-position = Vector2( 43.5, 25.5 )
-scale = Vector2( 2.02083, 1.22917 )
-texture = ExtResource( 2 )
+[node name="youwin" type="Sprite" parent="."]
+position = Vector2( 42, 24 )
+texture = ExtResource( 1 )
 
-[node name="SpriteText" type="ReferenceRect" parent="."]
-margin_right = 84.0
+[node name="Control" type="Control" parent="."]
+margin_left = 3.0
+margin_right = 87.0
 margin_bottom = 48.0
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-text = "You Win!"
+
+[node name="SpriteText" type="ReferenceRect" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -19.0
+margin_top = 28.0
+margin_right = 45.0
+margin_bottom = 38.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "9999s"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 $€£¥¤+-*/=%\"'#@&_(),.;:?!|{}<>[]'^~"
-font_texture = ExtResource( 1 )
+font_texture = ExtResource( 2 )
 char_width = 7
+tab_spaces = 1
+texture_rows = 1
