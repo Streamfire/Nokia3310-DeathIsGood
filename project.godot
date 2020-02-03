@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "ReferenceRect",
+"class": "SpriteText",
+"language": "GDScript",
+"path": "res://SpriteTextScript/SpriteText.gd"
+} ]
 _global_script_class_icons={
-
+"SpriteText": ""
 }
 
 [application]

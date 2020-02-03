@@ -30,6 +30,8 @@ func _process(delta):
 			1:
 				$Controls2.hide()
 				get_tree().change_scene(\"res://internal/Scenes/Main.tscn\")
+				Global.reset_count()
+				Global.start_count()
 	pass
 "
 
