@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Graphics/Deco/dungeon1.png" type="Texture" id=1]
 [ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://internal/Scenes/Slime.tscn" type="PackedScene" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -283,4 +284,16 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
 position = Vector2( 285, 3 )
 shape = SubResource( 8 )
+
+[node name="Slime" parent="." instance=ExtResource( 3 )]
+position = Vector2( 133.577, 171.214 )
+
+[node name="Slime2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 259.409, 122.61 )
+
+[node name="Slime3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 156.674, 62.3866 )
+
+[node name="Slime4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 237.303, 34.7546 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]
