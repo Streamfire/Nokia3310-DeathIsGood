@@ -75,6 +75,7 @@ func get_input():
 	
 	if Input.is_action_just_pressed(\"use_item\") and shieldCD <= 0.0:
 		once_lock1=true
+		once_lock2=true
 		AudioBus.play_effect(\"res://Assets/Sounds/shield activated.wav\")
 		shieldLeft=shield_duration
 		shieldCD=shield_cooldown
@@ -128,6 +129,10 @@ func play_animation():
 	if(shieldCD>0.0 and shieldCD<0.03) and once_lock1:
 		AudioBus.play_effect(\"res://Assets/Sounds/shield recharged.wav\")
 		once_lock1=false
+	
+	if(shieldLeft>0.0 and shieldLeft<0.03) and once_lock2:
+		AudioBus.play_effect(\"res://Assets/Sounds/shield deactivated.wav\")
+		once_lock2=false
 
 
 func refresh_hearts():
@@ -1102,6 +1107,7 @@ collision_mask = 9
 script = SubResource( 1 )
 speed = 0.33
 shield_duration = 2.0
+shield_cooldown = 6.0
 shot_cooldown = 0.16
 dash_cooldown = 0.8
 shot_scene = ExtResource( 7 )

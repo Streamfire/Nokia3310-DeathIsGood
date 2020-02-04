@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Graphics/Deco/bossroom.png" type="Texture" id=1]
+[ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Player/camera.limit_bottom=168
+	
+	$Player/camera.limit_right=168
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_StaticBody2D_area_entered(area):
+	
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 4, 16 )
+
+[node name="Main" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 84, 104 )
+z_index = 25
+speed = 0.5
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="MapImage" type="Sprite" parent="Map"]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MapCollisions" type="StaticBody2D" parent="Map"]
+collision_mask = 0
+
+[node name="TransitionToNext" type="Area2D" parent="Map"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
+position = Vector2( 499, 48 )
+shape = SubResource( 8 )
+[connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]
