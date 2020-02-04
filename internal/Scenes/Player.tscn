@@ -13,7 +13,9 @@
 script/source = "extends KinematicBody2D
 
 export var speed:float = 0.75
-export var dash_speed:float = 12.0
+export var sprint_speed_multiplikator:float = 2.0
+export var shield_duration:float = 1.5
+export var shield_cooldown:float = 6.0
 export var shot_cooldown:float = 0.2
 export var dash_cooldown:float = 3
 
@@ -22,8 +24,8 @@ var direction = Vector2()
 var lastAimed= Vector2(1,0)
 var aiming= Vector2(0,0)
 
-var dash:bool = false
-var dashCD:float= 0.0
+var shieldLeft:float=0.0
+var shieldCD:float=0.0
 var shotCD:float=0.0
 
 var HP = 3
@@ -63,11 +65,11 @@ func get_input():
 	elif direction != Vector2(0,0):
 		lastAimed=direction
 	
-	if Input.is_action_just_pressed(\"dash\")and dashCD <= 0.0:
-		dash=true
-		dashCD=dash_cooldown
+	if Input.is_action_just_pressed(\"use_item\") and shieldCD <= 0.0:
+		shieldLeft=shield_duration
+		shieldCD=shield_cooldown
 	
-	if Input.is_action_pressed(\"shoot\") and shotCD <= 0.0:
+	if Input.is_action_pressed(\"shoot\") and shotCD <= 0.0 and !Input.is_action_pressed(\"dash\"):
 		var shot = shot_scene.instance()
 		shot.position=self.position
 		shot.direction= lastAimed
@@ -130,24 +132,24 @@ func refresh_hearts():
 func _physics_process(delta):
 	#movement
 	get_input()
-	if dash != true:
-		move_and_collide(direction.normalized()*speed)
+	if Input.is_action_pressed(\"dash\"):
+		move_and_collide(direction.normalized()*speed*sprint_speed_multiplikator)
 	else:
-		move_and_collide(lastAimed.normalized()*dash_speed)
-		dash=false	
+		move_and_collide(direction.normalized()*speed)
 	
 	#graphics
 	play_animation()
 	refresh_hearts()
 	#cds
-	dashCD-=delta
+	shieldCD-=delta
 	shotCD-=delta
+	shieldLeft-=delta
 
 
 
 #this reacts to mobs and mobbullets
 func _on_HitArea_area_entered(area):
-	if(area.is_in_group(\"HarmToPlayer\")):
+	if(area.is_in_group(\"HarmToPlayer\")and shieldLeft<=0.0):
 		HP-=1
 	if(HP<=0):
 		Global.stop_count()
@@ -1060,7 +1062,6 @@ collision_layer = 2
 collision_mask = 9
 script = SubResource( 1 )
 speed = 0.33
-dash_speed = 16.0
 shot_cooldown = 0.16
 dash_cooldown = 0.8
 shot_scene = ExtResource( 7 )
