@@ -254,7 +254,7 @@ position = Vector2( 53, 120 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 72, 121 )
+position = Vector2( 72, 120 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Map/MapCollisions"]
