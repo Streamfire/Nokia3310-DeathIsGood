@@ -108,6 +108,11 @@ func play_animation():
 	if direction == Vector2(0,0):
 		animator.stop(true)
 		animator.seek(0.5,true)
+	
+	if(shieldCD>0.0 and shieldCD<0.03):
+		self.hide()
+	else:
+		self.show()
 
 func refresh_hearts():
 	match HP:
