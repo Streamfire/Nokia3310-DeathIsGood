@@ -1112,6 +1112,7 @@ extents = Vector2( 4, 4 )
 collision_layer = 8
 collision_mask = 9
 script = SubResource( 1 )
+HP = 2
 speed = 0.16
 shot_cooldown = 0.16
 shot_scene = ExtResource( 7 )
