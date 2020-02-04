@@ -1134,7 +1134,6 @@ anims/Walk_UpLeft = SubResource( 10 )
 anims/Walk_UpRight = SubResource( 11 )
 
 [node name="Sprite_Up" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 5 )
 hframes = 2
 
