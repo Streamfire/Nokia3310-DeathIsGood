@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/Player/player_north.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Graphics/Player/player_east.png" type="Texture" id=6]
 [ext_resource path="res://internal/Scenes/PlayerShot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://internal/Scenes/PlayerUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Graphics/Player/shield.png" type="Texture" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
@@ -109,6 +110,11 @@ func play_animation():
 		animator.stop(true)
 		animator.seek(0.5,true)
 	
+	if(shieldLeft>0.0):
+		$Sprite_Shield.show()
+	else:
+		$Sprite_Shield.hide()
+	
 	if(shieldCD>0.0 and shieldCD<0.03):
 		self.hide()
 	else:
@@ -156,6 +162,7 @@ func _physics_process(delta):
 func _on_HitArea_area_entered(area):
 	if(area.is_in_group(\"HarmToPlayer\")and shieldLeft<=0.0):
 		HP-=1
+		$HitAnimator.play(\"Hit\")
 	if(HP<=0):
 		Global.stop_count()
 		get_tree().change_scene(\"res://internal/Scenes/Lose.tscn\")
@@ -167,6 +174,22 @@ extents = Vector2( 3, 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 3, 4 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 2.0
@@ -1067,6 +1090,7 @@ collision_layer = 2
 collision_mask = 9
 script = SubResource( 1 )
 speed = 0.33
+shield_duration = 2.0
 shot_cooldown = 0.16
 dash_cooldown = 0.8
 shot_scene = ExtResource( 7 )
@@ -1081,6 +1105,9 @@ collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 shape = SubResource( 3 )
+
+[node name="HitAnimator" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 12 )
 
 [node name="PlayerAnimator" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
@@ -1107,6 +1134,7 @@ hframes = 4
 frame = 2
 
 [node name="Sprite_Right" type="Sprite" parent="."]
+visible = false
 z_index = 50
 texture = ExtResource( 6 )
 hframes = 4
@@ -1119,7 +1147,6 @@ hframes = 4
 frame = 1
 
 [node name="Sprite_Down" type="Sprite" parent="."]
-visible = false
 z_index = 50
 texture = ExtResource( 5 )
 hframes = 4
@@ -1146,6 +1173,12 @@ texture = ExtResource( 4 )
 flip_h = true
 hframes = 4
 frame = 3
+
+[node name="Sprite_Shield" type="Sprite" parent="."]
+visible = false
+z_index = 50
+texture = ExtResource( 9 )
+flip_h = true
 
 [node name="camera" type="Camera2D" parent="."]
 current = true
