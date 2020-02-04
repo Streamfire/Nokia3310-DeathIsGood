@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://internal/Scripts/Global.gd"
+AudioBus="*res://internal/Scripts/AudioBus.gd"
 
 [debug]
 

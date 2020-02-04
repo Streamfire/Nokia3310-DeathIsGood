@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shield recharged.wav-838b881f42c9d30d448e0b83b8aaa796.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/shield recharged.wav"
+dest_files=[ "res://.import/shield recharged.wav-838b881f42c9d30d448e0b83b8aaa796.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
