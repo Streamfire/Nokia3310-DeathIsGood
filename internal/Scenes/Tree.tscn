@@ -16,6 +16,7 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	HP-=1
+	AudioBus.play_effect(\"res://Assets/Sounds/enemie tree stone hit.wav\")
 	if(HP<=0):
 		animator.stop()
 		$tree1.frame=2
@@ -27,10 +28,10 @@ func _on_Area2D_area_entered(area):
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 7 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 7 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 resource_name = "Die"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Stone/tree1:frame")
@@ -45,7 +46,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 resource_name = "idle"
 loop = true
 tracks/0/type = "value"
@@ -74,11 +75,11 @@ collision_layer = 32
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 11 )
+shape = SubResource( 3 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
-anims/Die = SubResource( 12 )
-anims/idle = SubResource( 13 )
+anims/Die = SubResource( 4 )
+anims/idle = SubResource( 5 )
 
 [node name="tree1" type="Sprite" parent="."]
 texture = ExtResource( 1 )

@@ -15,6 +15,7 @@ script/source = "extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	AudioBus.play_effect(\"res://Assets/Sounds/game won.wav\")
 	$Control/SpriteText.text=str(Global.seconds,\"s\")
 	pass # Replace with function body.
 
