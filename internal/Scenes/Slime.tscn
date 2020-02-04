@@ -92,6 +92,7 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
+	AudioBus.play_effect(\"res://Assets/Sounds/enemie life hit.wav\")
 	HP-=1
 	if(HP<=0):
 		animator.play(\"Die\")

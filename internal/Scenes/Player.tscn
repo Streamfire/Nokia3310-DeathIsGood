@@ -33,6 +33,8 @@ var HP = 3
 
 onready var animator = $PlayerAnimator
 
+var once_lock1:bool=true
+var once_lock2:bool=true
 
 func _ready():
 	animator.play(\"Walk_Right\")
@@ -67,10 +69,13 @@ func get_input():
 		lastAimed=direction
 	
 	if Input.is_action_just_pressed(\"use_item\") and shieldCD <= 0.0:
+		once_lock1=true
+		AudioBus.play_effect(\"res://Assets/Sounds/shield activated.wav\")
 		shieldLeft=shield_duration
 		shieldCD=shield_cooldown
 	
 	if Input.is_action_pressed(\"shoot\") and shotCD <= 0.0 and !Input.is_action_pressed(\"dash\"):
+		AudioBus.play_effect(\"res://Assets/Sounds/shoot.wav\")
 		var shot = shot_scene.instance()
 		shot.position=self.position
 		shot.direction= lastAimed
@@ -115,10 +120,10 @@ func play_animation():
 	else:
 		$Sprite_Shield.hide()
 	
-	if(shieldCD>0.0 and shieldCD<0.03):
-		self.hide()
-	else:
-		self.show()
+	if(shieldCD>0.0 and shieldCD<0.03) and once_lock1:
+		AudioBus.play_effect(\"res://Assets/Sounds/shield recharged.wav\")
+		once_lock1=false
+
 
 func refresh_hearts():
 	match HP:
@@ -163,6 +168,7 @@ func _on_HitArea_area_entered(area):
 	if(area.is_in_group(\"HarmToPlayer\")and shieldLeft<=0.0):
 		HP-=1
 		$HitAnimator.play(\"Hit\")
+		AudioBus.play_effect(\"res://Assets/Sounds/player got hit.wav\")
 	if(HP<=0):
 		Global.stop_count()
 		get_tree().change_scene(\"res://internal/Scenes/Lose.tscn\")
@@ -173,7 +179,7 @@ func _on_HitArea_area_entered(area):
 extents = Vector2( 3, 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 3, 4 )
+extents = Vector2( 4, 5 )
 
 [sub_resource type="Animation" id=12]
 resource_name = "Hit"
@@ -1121,20 +1127,17 @@ anims/Walk_UpLeft = SubResource( 10 )
 anims/Walk_UpRight = SubResource( 11 )
 
 [node name="Sprite_Up" type="Sprite" parent="."]
-visible = false
 z_index = 50
 texture = ExtResource( 2 )
 hframes = 4
 
 [node name="Sprite_UpRight" type="Sprite" parent="."]
-visible = false
 z_index = 50
 texture = ExtResource( 4 )
 hframes = 4
 frame = 2
 
 [node name="Sprite_Right" type="Sprite" parent="."]
-visible = false
 z_index = 50
 texture = ExtResource( 6 )
 hframes = 4
