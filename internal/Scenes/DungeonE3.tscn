@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Graphics/Deco/dungeon3.png" type="Texture" id=1]
 [ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=2]
@@ -29,6 +29,24 @@ func _on_StaticBody2D_area_entered(area):
 	pass # Replace with function body.
 "
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 255, 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1, 54 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 1 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 7, 6 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1, 4 )
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 16 )
 
@@ -52,6 +70,686 @@ __meta__ = {
 
 [node name="MapCollisions" type="StaticBody2D" parent="Map"]
 collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 249, -1 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 504, 52 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 0, 48 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D88" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 43, 95 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D89" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 39, 94 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D90" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 36, 93 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D91" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 31, 92 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D92" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 19, 92 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D93" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 4, 91 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D94" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 0, 90 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D95" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( -3, 89 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D96" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( -5, 88 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D97" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( -7, 87 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D98" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( -8, 86 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D99" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 1, 14 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D100" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 2, 11 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D101" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 3, 9 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D102" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 4, 6 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D103" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 5, 3 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D104" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 6, 1 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D105" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 7, -1 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D106" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 8, -3 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D107" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 11, 1 )
+rotation = 3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D108" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 8, 2 )
+rotation = 3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D110" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 8, 2 )
+rotation = 3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D113" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 422, 65 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D114" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 424, 66 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D115" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 426, 67 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D116" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 428, 68 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D117" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 430, 69 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D118" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 432, 70 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D119" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 434, 71 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D120" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 436, 72 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D121" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 438, 73 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D122" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 440, 74 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D123" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 442, 75 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D124" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 444, 76 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D125" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 446, 77 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D126" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 448, 78 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D127" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 450, 79 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D128" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 452, 80 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D129" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 454, 81 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D130" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 456, 82 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D131" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 458, 83 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D132" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 460, 84 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D133" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 462, 85 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D134" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 464, 86 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D135" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 466, 87 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D136" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 468, 88 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D137" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 470, 89 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D138" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 472, 90 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D139" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 474, 91 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D140" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 476, 92 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D141" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 478, 93 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D142" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 480, 94 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D143" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 482, 95 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D144" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 484, 96 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D145" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 486, 97 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D146" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 488, 98 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D147" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 490, 99 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D148" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 492, 100 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D149" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 494, 101 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D150" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 496, 102 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D151" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 498, 103 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D152" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 500, 104 )
+rotation = 4.71238
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D109" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 6, 3 )
+rotation = 3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D111" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 4, 4 )
+rotation = 3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D112" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 2, 5 )
+rotation = 3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 252, 97 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 74, 9 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 84, 9 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 84, 25 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 84, 41 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 84, 56 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 126, 56 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 126, 72 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 126, 88 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 168, 64 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 168, 48 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 168, 32 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 294, 9 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 294, 25 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 294, 41 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 301, 48 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 317, 48 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 333, 48 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 350, 48 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 344, 24 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 360, 24 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 376, 24 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 392, 24 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 408, 24 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D79" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 414, 24 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D80" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 420, 30 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D81" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 420, 46 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D82" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 420, 62 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D83" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 420, 78 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D84" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 420, 92 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D85" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 502, 0 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D86" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 498, 0 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D87" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 496, 0 )
+rotation = 3.14159
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 216, 43 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 216, 48 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 217, 52 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 218, 55 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 219, 57 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 220, 59 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 221, 60 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 222, 61 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 223, 62 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 225, 63 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 217, 39 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 218, 36 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 219, 34 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 220, 32 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 221, 31 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 222, 30 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 223, 29 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 225, 28 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 227, 28 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 229, 29 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 230, 29 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 232, 30 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 234, 31 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 235, 32 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 236, 33 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 238, 34 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 239, 35 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 240, 36 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 241, 37 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 242, 39 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 243, 42 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 244, 45 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 245, 48 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 246, 51 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 247, 54 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 247, 57 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 246, 60 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 245, 62 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 244, 64 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 243, 65 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 242, 66 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 241, 67 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 239, 67 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 237, 68 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 235, 68 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 233, 68 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 231, 67 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 230, 67 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 229, 66 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 228, 65 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 227, 64 )
+shape = SubResource( 8 )
 
 [node name="TransitionToNext" type="Area2D" parent="Map"]
 collision_layer = 0
