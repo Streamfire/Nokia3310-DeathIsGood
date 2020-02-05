@@ -24,9 +24,13 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+var once:bool=false
+func _process(delta):
+	if !once:
+		if $LockingEnemies.get_child_count() <=0:
+			once=true
+			$shield.queue_free()
+	pass
 
 
 func _on_StaticBody2D_area_entered(area):
@@ -153,15 +157,17 @@ collision_mask = 2
 position = Vector2( 84, 3 )
 shape = SubResource( 7 )
 
-[node name="ShieldDude" parent="." instance=ExtResource( 4 )]
+[node name="LockingEnemies" type="Node2D" parent="."]
+
+[node name="ShieldDude" parent="LockingEnemies" instance=ExtResource( 4 )]
 position = Vector2( 47, 62 )
 
-[node name="ShieldDude2" parent="." instance=ExtResource( 4 )]
+[node name="ShieldDude2" parent="LockingEnemies" instance=ExtResource( 4 )]
 position = Vector2( 73, 61 )
 
-[node name="ShieldDude3" parent="." instance=ExtResource( 4 )]
+[node name="ShieldDude3" parent="LockingEnemies" instance=ExtResource( 4 )]
 position = Vector2( 95, 63 )
 
-[node name="ShieldDude4" parent="." instance=ExtResource( 4 )]
+[node name="ShieldDude4" parent="LockingEnemies" instance=ExtResource( 4 )]
 position = Vector2( 122, 64 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]
