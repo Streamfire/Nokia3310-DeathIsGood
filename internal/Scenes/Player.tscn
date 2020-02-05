@@ -71,12 +71,14 @@ func get_input():
 		lastAimed=direction
 	
 	if Input.is_action_just_pressed(\"dash\"):
-		if(sprint_lock):
-			$PlayerAnimator.playback_speed = 4
-		else:
-			$PlayerAnimator.playback_speed = 8
-			shieldLeft=0.0;
 		sprint_lock= !sprint_lock
+		if(sprint_lock):
+			$PlayerAnimator.playback_speed = 8
+		else:
+			$PlayerAnimator.playback_speed = 4
+
+	if(sprint_lock):
+		shieldLeft=0.0
 	
 	
 	if Input.is_action_just_pressed(\"use_item\") and shieldCD <= 0.0:
@@ -1113,7 +1115,6 @@ collision_mask = 9
 script = SubResource( 1 )
 speed = 0.33
 shield_duration = 2.0
-shot_cooldown = 0.2
 dash_cooldown = 0.8
 shot_scene = ExtResource( 7 )
 
