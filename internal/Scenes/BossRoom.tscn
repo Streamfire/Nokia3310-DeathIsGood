@@ -19,6 +19,7 @@ func _ready():
 	$Player/camera.limit_right=168
 	
 	$shield/AnimationPlayer.play(\"idle\")
+	AudioBus.play_effect(\"res://Assets/Sounds/bossroom.wav\")
 	pass # Replace with function body.
 
 
@@ -32,11 +33,11 @@ func _on_StaticBody2D_area_entered(area):
 	pass # Replace with function body.
 "
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 37.0
 height = 2.0
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "idle"
 loop = true
 tracks/0/type = "value"
@@ -52,16 +53,16 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 4, 10 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 1, 97 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 87, 1 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16, 3 )
 
 [node name="Main" type="Node2D"]
@@ -77,10 +78,10 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shield/StaticBody2D"]
 position = Vector2( 0, -17 )
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="shield"]
-anims/idle = SubResource( 11 )
+anims/idle = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 84, 104 )
@@ -101,75 +102,47 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 44, 15 )
-shape = SubResource( 12 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 124, 15 )
-shape = SubResource( 12 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 124, 74 )
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 124, 102 )
-shape = SubResource( 12 )
+position = Vector2( 116, 98 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 124, 90 )
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 44, 74 )
-shape = SubResource( 12 )
+position = Vector2( 116, 111 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 44, 102 )
-shape = SubResource( 12 )
+position = Vector2( 52, 111 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 44, 92 )
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 54, 68 )
-rotation = 1.57079
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 114, 68 )
-rotation = 1.57079
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 86, 116 )
-rotation = 1.57079
-shape = SubResource( 12 )
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Map/MapCollisions"]
-position = Vector2( 82, 116 )
-rotation = 1.57079
-shape = SubResource( 12 )
+position = Vector2( 52, 98 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 79, 168 )
 rotation = 1.57079
-shape = SubResource( 13 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 78, 0 )
 rotation = 1.57079
-shape = SubResource( 13 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 168, 85 )
 rotation = 1.57079
-shape = SubResource( 14 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 0, 84 )
 rotation = 1.57079
-shape = SubResource( 14 )
+shape = SubResource( 6 )
 
 [node name="TransitionToNext" type="Area2D" parent="Map"]
 collision_layer = 0
@@ -177,5 +150,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
 position = Vector2( 84, 3 )
-shape = SubResource( 10 )
+shape = SubResource( 7 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]

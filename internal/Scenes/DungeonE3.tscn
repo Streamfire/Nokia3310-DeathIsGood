@@ -16,6 +16,7 @@ script/source = "extends Node2D
 func _ready():
 	$Player/camera.limit_bottom=96
 	$Player/camera.limit_right=504
+	AudioBus.play_effect(\"res://Assets/Sounds/newdungeon.wav\")
 	pass # Replace with function body.
 
 
