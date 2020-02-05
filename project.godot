@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Nokia3310-DeathIsGood"
-run/main_scene="res://internal/Scenes/Startup.tscn"
+run/main_scene="res://internal/Scenes/Start.tscn"
 config/icon="res://icon.png"
 
 [autoload]

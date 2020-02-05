@@ -72,9 +72,10 @@ func get_input():
 	
 	if Input.is_action_just_pressed(\"dash\"):
 		if(sprint_lock):
-			$PlayerAnimator.playback_speed = 8
-		else:
 			$PlayerAnimator.playback_speed = 4
+		else:
+			$PlayerAnimator.playback_speed = 8
+			shieldLeft=0.0;
 		sprint_lock= !sprint_lock
 	
 	
