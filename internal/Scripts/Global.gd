@@ -1,5 +1,7 @@
 extends Node
 
+var Playernode
+
 var seconds:float=0
 var running:bool=true
 

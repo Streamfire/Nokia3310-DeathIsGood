@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bossroom.wav-6b0dba019ee464f2f2cf14b0387bd217.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/bossroom.wav"
+dest_files=[ "res://.import/bossroom.wav-6b0dba019ee464f2f2cf14b0387bd217.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
