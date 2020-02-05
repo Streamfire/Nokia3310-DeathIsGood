@@ -71,6 +71,10 @@ func get_input():
 		lastAimed=direction
 	
 	if Input.is_action_just_pressed(\"dash\"):
+		if(sprint_lock):
+			$PlayerAnimator.playback_speed = 8
+		else:
+			$PlayerAnimator.playback_speed = 4
 		sprint_lock= !sprint_lock
 	
 	
@@ -1138,17 +1142,20 @@ anims/Walk_UpLeft = SubResource( 11 )
 anims/Walk_UpRight = SubResource( 12 )
 
 [node name="Sprite_Up" type="Sprite" parent="."]
+visible = false
 z_index = 50
 texture = ExtResource( 2 )
 hframes = 4
 
 [node name="Sprite_UpRight" type="Sprite" parent="."]
+visible = false
 z_index = 50
 texture = ExtResource( 4 )
 hframes = 4
 frame = 2
 
 [node name="Sprite_Right" type="Sprite" parent="."]
+visible = false
 z_index = 50
 texture = ExtResource( 6 )
 hframes = 4

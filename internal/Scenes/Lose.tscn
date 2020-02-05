@@ -10,7 +10,10 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioBus.play_effect(\"res://Assets/Sounds/game lost.wav\")
-"
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"shoot\"):
+		get_tree().change_scene(\"res://internal/Scenes/Startup.tscn\")"
 
 [node name="Node2D" type="Node2D"]
 script = SubResource( 1 )
