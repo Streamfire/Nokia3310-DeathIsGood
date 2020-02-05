@@ -312,14 +312,14 @@ position = Vector2( 109, 44 )
 [node name="Slime8" parent="." instance=ExtResource( 3 )]
 position = Vector2( 96, 92 )
 
+[node name="Slime11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 290, 30 )
+
+[node name="Slime12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 266, 57 )
+
 [node name="Slime9" parent="." instance=ExtResource( 3 )]
 position = Vector2( 134, 54 )
-
-[node name="Slime" parent="Slime9" instance=ExtResource( 3 )]
-position = Vector2( 156, -24 )
-
-[node name="Slime2" parent="Slime9" instance=ExtResource( 3 )]
-position = Vector2( 132, 3 )
 
 [node name="Stone" parent="." instance=ExtResource( 4 )]
 position = Vector2( 44, 186 )

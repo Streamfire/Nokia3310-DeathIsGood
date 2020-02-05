@@ -102,7 +102,7 @@ extents = Vector2( 5, 3 )
 [sub_resource type="Animation" id=3]
 resource_name = "Die"
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Mouse/Stone4:visible")
+tracks/0/path = NodePath("Sprite_Right:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -114,7 +114,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Mouse/Stone4:visible")
+tracks/1/path = NodePath("Sprite_Left:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -126,7 +126,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Mouse/Stone4:visible")
+tracks/2/path = NodePath("Sprite_Death:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -138,7 +138,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../Mouse/Stone4:frame")
+tracks/3/path = NodePath("Sprite_Death:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -233,7 +233,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Mouse/Stone4:visible")
+tracks/0/path = NodePath("Sprite_Right:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -245,7 +245,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Mouse/Stone4:visible")
+tracks/1/path = NodePath("Sprite_Left:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -257,7 +257,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Mouse/Stone4:frame")
+tracks/2/path = NodePath("Sprite_Left:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -272,7 +272,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Mouse/Stone4:visible")
+tracks/0/path = NodePath("Sprite_Left:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -281,10 +281,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Mouse/Stone4:visible")
+tracks/1/path = NodePath("Sprite_Right:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -293,10 +293,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Mouse/Stone4:frame")
+tracks/2/path = NodePath("Sprite_Right:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -422,7 +422,6 @@ anims/Walk_UpLeft = SubResource( 10 )
 anims/Walk_UpRight = SubResource( 11 )
 
 [node name="Sprite_Right" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 1 )
 hframes = 3
 
@@ -431,6 +430,7 @@ visible = false
 texture = ExtResource( 1 )
 flip_h = true
 hframes = 3
+frame = 1
 
 [node name="Sprite_Death" type="Sprite" parent="."]
 visible = false
