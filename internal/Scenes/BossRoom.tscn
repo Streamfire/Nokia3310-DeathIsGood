@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Graphics/Deco/bossroom.png" type="Texture" id=1]
 [ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Graphics/Enemies/Nimrod/shield.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -15,8 +16,9 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player/camera.limit_bottom=168
-	
 	$Player/camera.limit_right=168
+	
+	$shield/AnimationPlayer.play(\"idle\")
 	pass # Replace with function body.
 
 
@@ -30,11 +32,55 @@ func _on_StaticBody2D_area_entered(area):
 	pass # Replace with function body.
 "
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 4, 16 )
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 37.0
+height = 2.0
+
+[sub_resource type="Animation" id=11]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 4, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 1, 97 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 87, 1 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 16, 3 )
 
 [node name="Main" type="Node2D"]
 script = SubResource( 1 )
+
+[node name="shield" type="Sprite" parent="."]
+position = Vector2( 84, 20 )
+z_index = 25
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="shield"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shield/StaticBody2D"]
+position = Vector2( 0, -17 )
+shape = SubResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shield"]
+anims/idle = SubResource( 11 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 84, 104 )
@@ -53,11 +99,83 @@ __meta__ = {
 [node name="MapCollisions" type="StaticBody2D" parent="Map"]
 collision_mask = 0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 44, 15 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 124, 15 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 124, 74 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 124, 102 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 124, 90 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 44, 74 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 44, 102 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 44, 92 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 54, 68 )
+rotation = 1.57079
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 114, 68 )
+rotation = 1.57079
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 86, 116 )
+rotation = 1.57079
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 82, 116 )
+rotation = 1.57079
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 79, 168 )
+rotation = 1.57079
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 78, 0 )
+rotation = 1.57079
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 168, 85 )
+rotation = 1.57079
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Map/MapCollisions"]
+position = Vector2( 0, 84 )
+rotation = 1.57079
+shape = SubResource( 14 )
+
 [node name="TransitionToNext" type="Area2D" parent="Map"]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
-position = Vector2( 499, 48 )
-shape = SubResource( 8 )
+position = Vector2( 84, 3 )
+shape = SubResource( 10 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]
