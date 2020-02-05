@@ -11,10 +11,11 @@ func _ready() -> void:
 
 func play_effect(path:String):
 	var stream = load(path)
-	AudioServer.set_bus_mute(1, true)
+	#AudioServer.set_bus_mute(1, true)
 	effect.stop()
 	effect.stream = stream
 	effect.play()
 
 func effect_finished() -> void:
-	AudioServer.set_bus_mute(1, false)
+	#AudioServer.set_bus_mute(1, false)
+	pass

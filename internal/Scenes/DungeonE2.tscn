@@ -1,12 +1,10 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Graphics/Deco/dungeon2.png" type="Texture" id=1]
 [ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://internal/Scenes/Slime.tscn" type="PackedScene" id=3]
 [ext_resource path="res://internal/Scenes/Stone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://internal/Scenes/Mouse.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Graphics/Objects/canon/top.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Graphics/Objects/canon/down.png" type="Texture" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -68,7 +66,7 @@ extents = Vector2( 5, 4 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 45, 1 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 4, 16 )
 
 [node name="Main" type="Node2D"]
@@ -447,7 +445,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
 position = Vector2( 332, 168 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Stone" parent="." instance=ExtResource( 4 )]
 position = Vector2( 97, 188 )
@@ -481,22 +479,6 @@ position = Vector2( -18, -10 )
 
 [node name="Mouse3" parent="Stone3/Slime2" instance=ExtResource( 5 )]
 position = Vector2( 188, 19 )
-
-[node name="down" type="Sprite" parent="Stone3/Slime2"]
-position = Vector2( 77, -29 )
-texture = ExtResource( 7 )
-
-[node name="down2" type="Sprite" parent="Stone3/Slime2"]
-position = Vector2( 99, -29 )
-texture = ExtResource( 7 )
-
-[node name="top" type="Sprite" parent="Stone3/Slime2"]
-position = Vector2( 88, 3 )
-texture = ExtResource( 6 )
-
-[node name="top2" type="Sprite" parent="Stone3/Slime2"]
-position = Vector2( 112, 3 )
-texture = ExtResource( 6 )
 
 [node name="Slime3" parent="Stone3" instance=ExtResource( 3 )]
 position = Vector2( 4, 26 )
