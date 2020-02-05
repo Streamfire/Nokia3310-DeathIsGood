@@ -1,55 +1,143 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Graphics/nokia_font_dark_strip.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=2]
-[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Graphics/Splash/theend3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Graphics/Splash/theend2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Graphics/Splash/theend1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Splash/theend4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/Splash/theend5.png" type="Texture" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 var state:int=0
 
+func _ready():
+	$AnimationPlayer.play(\"idle\")
 
 func _process(delta):
 	if Input.is_action_just_pressed(\"shoot\") or Input.is_action_just_pressed(\"dash\") or Input.is_action_just_pressed(\"use_item\"):
 		AudioBus.play_effect(\"res://Assets/Sounds/confirmed.wav\")
 		match state:
 			0:
-			
+				$theend1.hide()
+				$theend2.show()
+				$theend3.hide()
+				$theend4.hide()
+				$theend5.hide()
+				
 				state+=1
 			1:
+				$theend1.hide()
+				$theend2.hide()
+				$theend3.show()
+				$theend4.hide()
+				$theend5.hide()
 			
 				state+=1
 			2:
+				$theend1.hide()
+				$theend2.hide()
+				$theend3.hide()
+				$theend4.show()
+				$theend5.hide()
 			
 				state+=1
 			3:
+				$theend1.hide()
+				$theend2.hide()
+				$theend3.hide()
+				$theend4.hide()
+				$theend5.show()
 			
 				state+=1
 			4:
-			
-				state+=1
-			5:
 				get_tree().change_scene(\"res://internal/Scenes/Startup.tscn\")
-	pass
+				state+=1
+
 "
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("theend1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("theend2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("theend3:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("theend4:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
 
 [node name="Startup" type="Node2D"]
 script = SubResource( 1 )
 
-[node name="background" type="Sprite" parent="."]
-position = Vector2( 41, 24.5 )
-scale = Vector2( 2.25, 1.0625 )
-texture = ExtResource( 2 )
+[node name="theend1" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+hframes = 2
 
-[node name="SpriteText" type="ReferenceRect" parent="."]
-margin_right = 84.0
-margin_bottom = 48.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-text = "              When you   reached the    kings      chamber"
-character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 $€£¥¤+-*/=%\"'#@&_(),.;:?!|{}<>[]'^~"
-font_texture = ExtResource( 1 )
-char_width = 7
+[node name="theend2" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+centered = false
+hframes = 2
+
+[node name="theend3" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+centered = false
+hframes = 2
+
+[node name="theend4" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+centered = false
+hframes = 2
+
+[node name="theend5" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 2 )
