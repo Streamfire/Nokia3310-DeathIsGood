@@ -35,11 +35,11 @@ func _on_Timer_timeout():
 	pass # Replace with function body.
 "
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2, 58 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 3 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 8 )
 
 [node name="Main" type="Node2D"]
 script = SubResource( 1 )
@@ -63,29 +63,29 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 26, 86 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 58, 84 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 54, 96 )
 rotation = -1.57079
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/MapCollisions"]
 position = Vector2( 48, 28 )
 rotation = -1.57079
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="TransitionToNext" type="Area2D" parent="Map"]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
-position = Vector2( 41, 29 )
-shape = SubResource( 2 )
+position = Vector2( 42, 35 )
+shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

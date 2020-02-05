@@ -66,7 +66,7 @@ extents = Vector2( 5, 4 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 45, 1 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 4, 16 )
 
 [node name="Main" type="Node2D"]
@@ -445,7 +445,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TransitionToNext"]
 position = Vector2( 332, 168 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Stone" parent="." instance=ExtResource( 4 )]
 position = Vector2( 97, 188 )
@@ -455,45 +455,6 @@ position = Vector2( 201.637, 111.274 )
 
 [node name="Stone3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 138, 142 )
-
-[node name="Stone" parent="Stone3" instance=ExtResource( 4 )]
-position = Vector2( -26, -76 )
-
-[node name="Stone2" parent="Stone3" instance=ExtResource( 4 )]
-position = Vector2( 114, 37 )
-
-[node name="Stone3" parent="Stone3" instance=ExtResource( 4 )]
-position = Vector2( 181, -89 )
-
-[node name="Slime" parent="Stone3" instance=ExtResource( 3 )]
-position = Vector2( -44, 12 )
-
-[node name="Slime2" parent="Stone3" instance=ExtResource( 3 )]
-position = Vector2( -73, -82 )
-
-[node name="Mouse" parent="Stone3/Slime2" instance=ExtResource( 5 )]
-position = Vector2( -32, -23 )
-
-[node name="Mouse2" parent="Stone3/Slime2" instance=ExtResource( 5 )]
-position = Vector2( -18, -10 )
-
-[node name="Mouse3" parent="Stone3/Slime2" instance=ExtResource( 5 )]
-position = Vector2( 188, 19 )
-
-[node name="Slime3" parent="Stone3" instance=ExtResource( 3 )]
-position = Vector2( 4, 26 )
-
-[node name="Slime4" parent="Stone3" instance=ExtResource( 3 )]
-position = Vector2( 5, -35 )
-
-[node name="Slime5" parent="Stone3" instance=ExtResource( 3 )]
-position = Vector2( -105, -44 )
-
-[node name="Mouse" parent="Stone3" instance=ExtResource( 5 )]
-position = Vector2( 13, -17 )
-
-[node name="Mouse2" parent="Stone3" instance=ExtResource( 5 )]
-position = Vector2( 58, -6 )
 
 [node name="Mouse" parent="." instance=ExtResource( 5 )]
 position = Vector2( 271, 112 )
@@ -506,4 +467,52 @@ position = Vector2( 231, 132 )
 
 [node name="Slime" parent="." instance=ExtResource( 3 )]
 position = Vector2( 292, 182 )
+
+[node name="Slime2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 146, 45 )
+
+[node name="Slime3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 182, 53 )
+
+[node name="Slime4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 101, 37 )
+
+[node name="Mouse4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 33, 37 )
+
+[node name="Mouse5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 47, 50 )
+
+[node name="Mouse6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 253, 79 )
+
+[node name="Stone4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 112, 66 )
+
+[node name="Stone5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 252, 179 )
+
+[node name="Stone6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 319, 53 )
+
+[node name="Slime5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 94, 154 )
+
+[node name="Slime6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 65, 60 )
+
+[node name="Slime7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 142, 168 )
+
+[node name="Slime8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 143, 107 )
+
+[node name="Slime9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 33, 98 )
+
+[node name="Mouse7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 151, 125 )
+
+[node name="Mouse8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 196, 136 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]
