@@ -28,13 +28,14 @@ var once:bool=false
 func _process(delta):
 	if !once:
 		if $LockingEnemies.get_child_count() <=0:
+			Global.stop_count()
 			once=true
 			$shield.queue_free()
 	pass
 
 
 func _on_StaticBody2D_area_entered(area):
-	
+	get_tree().change_scene(\"res://internal/Scenes/KingChamber.tscn\")
 	pass # Replace with function body.
 "
 

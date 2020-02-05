@@ -12,6 +12,10 @@ script/source = "extends Node2D
 func _ready():
 	AudioBus.play_effect(\"res://Assets/Sounds/game won.wav\")
 	$Control/SpriteText.text=str(int(Global.seconds),\"s\")
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"shoot\"):
+		get_tree().change_scene(\"res://internal/Scenes/EndText.tscn\")
 "
 
 [node name="Node2D" type="Node2D"]
@@ -42,7 +46,10 @@ __meta__ = {
 }
 text = "9999s"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 $€£¥¤+-*/=%\"'#@&_(),.;:?!|{}<>[]'^~"
+visible_characters = -1
 font_texture = ExtResource( 2 )
 char_width = 7
+char_height = 8
+anim_speed = 60.0
 tab_spaces = 1
 texture_rows = 1
