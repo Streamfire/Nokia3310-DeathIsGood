@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Graphics/Splash/controls1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Graphics/light.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Graphics/Splash/controls2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Splash/startup.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -15,7 +16,7 @@ var state:int=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AudioBus.play_effect(\"res://Assets/Sounds/startup.wav\")
+	#AudioBus.play_effect(\"res://Assets/Sounds/startup.wav\")
 	$AnimationPlayer.play(\"idle\")
 	pass # Replace with function body.
 
@@ -26,11 +27,15 @@ func _process(delta):
 		AudioBus.play_effect(\"res://Assets/Sounds/confirmed.wav\")
 		match state:
 			0:
+				$startup.hide()
+				$Controls.show()
+				$Controls2.hide()
+				state+=1
+			1:
 				$Controls.hide()
 				$Controls2.show()
-				state=1
-			1:
-				$Controls2.hide()
+				state+=1
+			2:
 				get_tree().change_scene(\"res://internal/Scenes/Main.tscn\")
 				Global.reset_count()
 				Global.start_count()
@@ -88,3 +93,7 @@ hframes = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
 anims/idle = SubResource( 2 )
+
+[node name="startup" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false

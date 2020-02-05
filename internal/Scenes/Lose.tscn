@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Graphics/Splash/youdead.png" type="Texture" id=1]
 
@@ -10,14 +10,36 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioBus.play_effect(\"res://Assets/Sounds/game lost.wav\")
+	$AnimationPlayer.play(\"idle\")
 
 func _process(delta):
 	if Input.is_action_just_pressed(\"shoot\"):
-		get_tree().change_scene(\"res://internal/Scenes/Startup.tscn\")"
+		get_tree().change_scene(\"res://internal/Scenes/Startup.tscn\")
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("youdead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
 
 [node name="Node2D" type="Node2D"]
 script = SubResource( 1 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 2 )
+
 [node name="youdead" type="Sprite" parent="."]
 position = Vector2( 42, 24 )
 texture = ExtResource( 1 )
+hframes = 2
