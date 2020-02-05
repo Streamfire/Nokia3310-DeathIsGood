@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Graphics/Deco/dungeon1.png" type="Texture" id=1]
 [ext_resource path="res://internal/Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://internal/Scenes/Slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://internal/Scenes/Stone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://internal/Scenes/Mouse.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -287,14 +289,59 @@ position = Vector2( 285, 3 )
 shape = SubResource( 8 )
 
 [node name="Slime" parent="." instance=ExtResource( 3 )]
-position = Vector2( 133.577, 171.214 )
+position = Vector2( 20, 166 )
 
 [node name="Slime2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 259.409, 122.61 )
+position = Vector2( 261, 124 )
 
 [node name="Slime3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 156.674, 62.3866 )
+position = Vector2( 157, 64 )
 
 [node name="Slime4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 237.303, 34.7546 )
+position = Vector2( 238, 34 )
+
+[node name="Slime5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 112.18, 179.008 )
+
+[node name="Slime6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 97, 143 )
+
+[node name="Slime7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 109, 44 )
+
+[node name="Slime8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96, 92 )
+
+[node name="Slime9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 134, 54 )
+
+[node name="Slime" parent="Slime9" instance=ExtResource( 3 )]
+position = Vector2( 156, -24 )
+
+[node name="Slime2" parent="Slime9" instance=ExtResource( 3 )]
+position = Vector2( 132, 3 )
+
+[node name="Stone" parent="." instance=ExtResource( 4 )]
+position = Vector2( 44, 186 )
+
+[node name="Stone2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 67, 113 )
+
+[node name="Stone3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 62, 9 )
+
+[node name="Stone4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 180, 136 )
+
+[node name="Stone5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 198, 187 )
+
+[node name="Stone6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 259, 7 )
+
+[node name="Mouse" parent="." instance=ExtResource( 5 )]
+position = Vector2( 27.6264, 120.059 )
+
+[node name="Slime10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 195.969, 57.5687 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]

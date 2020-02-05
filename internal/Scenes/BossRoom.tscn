@@ -90,7 +90,7 @@ shape = SubResource( 2 )
 anims/idle = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 84, 104 )
+position = Vector2( 84.1417, 158.697 )
 z_index = 25
 speed = 0.5
 
@@ -161,14 +161,14 @@ shape = SubResource( 7 )
 [node name="LockingEnemies" type="Node2D" parent="."]
 
 [node name="ShieldDude" parent="LockingEnemies" instance=ExtResource( 4 )]
-position = Vector2( 47, 62 )
+position = Vector2( 47, 61 )
 
 [node name="ShieldDude2" parent="LockingEnemies" instance=ExtResource( 4 )]
 position = Vector2( 73, 61 )
 
 [node name="ShieldDude3" parent="LockingEnemies" instance=ExtResource( 4 )]
-position = Vector2( 95, 63 )
+position = Vector2( 97, 61 )
 
 [node name="ShieldDude4" parent="LockingEnemies" instance=ExtResource( 4 )]
-position = Vector2( 122, 64 )
+position = Vector2( 122, 61 )
 [connection signal="area_entered" from="Map/TransitionToNext" to="." method="_on_StaticBody2D_area_entered"]
